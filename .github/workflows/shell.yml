@@ -1,0 +1,43 @@
+name: shell
+
+# The checks of the shell repository, for its own ci.yml to call:
+#
+#     jobs:
+#       ci:
+#         uses: twilight-shell/.github/.github/workflows/shell.yml@main
+on:
+  workflow_call:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    steps:
+      - name: Install tools
+        run: pacman -Syu --noconfirm git make
+
+      - name: Check out the shell with its components
+        uses: actions/checkout@v4
+        with:
+          path: shell
+          submodules: recursive
+
+      - name: Check out the checks
+        uses: actions/checkout@v4
+        with:
+          repository: twilight-shell/.github
+          path: checks
+
+      # git doesn't trust the folders of a container's checkout by default.
+      - name: Trust the checkout
+        run: git config --global --add safe.directory '*'
+
+      - name: The shell
+        run: sh checks/ci/check-shell.sh shell
+
+      - name: Install
+        run: |
+          make -C shell install DESTDIR="$PWD/root" PREFIX=/usr
+          test -x root/usr/bin/twilight-shell
+          test -f root/usr/share/twilight-shell/shell.qml
+          test -f root/usr/share/twilight-shell/lock/shell.qml
