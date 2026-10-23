@@ -1,7 +1,9 @@
 # twilight-shell/.github
 
 What the repositories of the [twilight-shell](https://github.com/twilight-shell)
-organization share: the checks run on every push and pull request.
+organization share: the checks run on every push and pull request, and the page
+of the organization, `profile/README.md`, with the screenshots in
+`profile/images/`.
 
 ## Using the checks
 
