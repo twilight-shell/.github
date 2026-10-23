@@ -17,19 +17,19 @@ jobs:
         run: pacman -Syu --noconfirm git make qt6-declarative
 
       - name: Check out the component
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: module
 
       # The TOML reader that the settings files are checked with.
       - name: Check out core
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: twilight-shell/core
           path: core
 
       - name: Check out the checks
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: twilight-shell/.github
           path: checks

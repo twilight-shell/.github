@@ -17,13 +17,13 @@ jobs:
         run: pacman -Syu --noconfirm git make
 
       - name: Check out the shell with its components
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: shell
           submodules: recursive
 
       - name: Check out the checks
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: twilight-shell/.github
           path: checks
