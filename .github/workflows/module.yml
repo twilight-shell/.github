@@ -1,0 +1,51 @@
+name: module
+
+# The checks of a component repository, for its own ci.yml to call:
+#
+#     jobs:
+#       ci:
+#         uses: twilight-shell/.github/.github/workflows/module.yml@main
+on:
+  workflow_call:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    steps:
+      - name: Install Qt
+        run: pacman -Syu --noconfirm git make qt6-declarative
+
+      - name: Check out the component
+        uses: actions/checkout@v4
+        with:
+          path: module
+
+      # The TOML reader that the settings files are checked with.
+      - name: Check out core
+        uses: actions/checkout@v4
+        with:
+          repository: twilight-shell/core
+          path: core
+
+      - name: Check out the checks
+        uses: actions/checkout@v4
+        with:
+          repository: twilight-shell/.github
+          path: checks
+
+      - name: Tests
+        run: PATH="$PATH:/usr/lib/qt6/bin" sh checks/ci/run-tests.sh module
+
+      - name: Settings files
+        run: PATH="$PATH:/usr/lib/qt6/bin" sh checks/ci/check-settings.sh module core
+
+      - name: Install
+        run: sh checks/ci/check-install.sh module
+
+      # Quickshell isn't here, so its types can't be resolved: this reports what
+      # it finds but doesn't fail the run.
+      - name: qmllint
+        continue-on-error: true
+        run: |
+          find module/Twilight -name '*.qml' | xargs /usr/lib/qt6/bin/qmllint -I core -I module
