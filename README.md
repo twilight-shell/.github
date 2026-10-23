@@ -3,7 +3,9 @@
 What the repositories of the [twilight-shell](https://github.com/twilight-shell)
 organization share: the checks run on every push and pull request, and the page
 of the organization, `profile/README.md`, with the screenshots in
-`profile/images/`.
+`profile/images/`, and the community files every repository inherits (the
+contributing guide, the code of conduct, the security policy, the issue and pull
+request templates).
 
 ## Using the checks
 

@@ -1,0 +1,55 @@
+name: Something doesn't work
+description: A bug, a crash, something that looks wrong
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time. If it is a security problem, please don't write it
+        here, see [SECURITY.md](https://github.com/twilight-shell/.github/blob/main/SECURITY.md).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What did you do, what did you expect, what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to see it
+      description: The steps, or the settings that matter.
+      placeholder: |
+        1. ...
+        2. ...
+  - type: input
+    id: version
+    attributes:
+      label: Version of the component
+      description: "`git describe --tags --always` in a clone, or the release you installed."
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: compositor
+    attributes:
+      label: Compositor
+      options: [niri, Hyprland, Sway, river, another]
+    validations:
+      required: true
+  - type: input
+    id: quickshell
+    attributes:
+      label: Quickshell and Qt version
+      description: "`qs --version`"
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: What the shell printed, from the terminal you started it in, or from `qs log`. Cut it to what matters.
+      render: shell
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything else
+      description: A screenshot, your `~/.config/twilight-shell/` file for this component, the distribution.
