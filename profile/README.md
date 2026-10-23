@@ -35,7 +35,7 @@ volume. Plugins can add islands of their own.
 "Twilight's Library": a spellbook card over a night sky. Type to search, and it
 still finds Firefox when you typed it on the wrong keyboard layout.
 
-<img src="https://raw.githubusercontent.com/twilight-shell/.github/main/profile/images/launcher.png" alt="The launcher" width="620">
+<img src="https://raw.githubusercontent.com/twilight-shell/.github/main/profile/images/launcher.png" alt="The launcher" width="100%">
 
 ### [popouts](https://github.com/twilight-shell/popouts)
 
