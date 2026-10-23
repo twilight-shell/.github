@@ -23,6 +23,7 @@ The shell repository calls `shell.yml` instead.
 |---|---|
 | Tests | Every `tests/*.qml`, run with Qt's `qml` tool. |
 | Settings files | Every `<name>.defaults.toml` and `<name>.schema.toml` parses, and each option of a schema fits its defaults: the key is there, with a value of the type the option edits, a range's default is inside it and a choice's is one of the choices. |
+| Dependencies | The `DEPENDS` of the repository says what its QML imports: every `import Twilight.X` of another module is listed, and everything listed is imported somewhere. |
 | Install | `make install` into a scratch folder puts every file of the `qmldir` there, in a folder named after the module. |
 | `qmllint` | Reports what it finds; it doesn't fail the run yet, since Quickshell's types can't be resolved in CI. |
 
@@ -37,6 +38,7 @@ The scripts in `ci/` are what the workflows run, and need only Qt's `qml` tool:
 ```sh
 export PATH=$PATH:/usr/lib/qt6/bin
 ci/check-settings.sh path/to/bar path/to/core
+ci/check-depends.sh path/to/bar
 ci/check-install.sh path/to/bar
 ci/run-tests.sh path/to/core
 ci/check-shell.sh path/to/shell

@@ -40,6 +40,9 @@ jobs:
       - name: Settings files
         run: PATH="$PATH:/usr/lib/qt6/bin" sh checks/ci/check-settings.sh module core
 
+      - name: Dependencies
+        run: sh checks/ci/check-depends.sh module
+
       - name: Install
         run: sh checks/ci/check-install.sh module
 
