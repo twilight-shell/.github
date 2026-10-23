@@ -94,7 +94,7 @@ Choose a palette, or make one of your own, or take the colors from the wallpaper
 Everything, with the shell that puts it together ([shell](https://github.com/twilight-shell/shell)):
 
 ```sh
-git clone --recurse-submodules git@github.com:twilight-shell/shell.git
+git clone --recurse-submodules https://github.com/twilight-shell/shell.git
 cd shell
 sudo make install
 ```
