@@ -121,6 +121,13 @@ it all works in [plugins](https://github.com/twilight-shell/plugins).
 
 <img src="https://raw.githubusercontent.com/twilight-shell/.github/main/profile/images/settings-plugins.png" alt="The plugins page of the settings window" width="640">
 
+## Contributing
+
+Bug reports, ideas, documentation and plugins are all welcome. The guide for every
+repository is [CONTRIBUTING.md](https://github.com/twilight-shell/.github/blob/main/CONTRIBUTING.md); we follow
+the [Code of Conduct](https://github.com/twilight-shell/.github/blob/main/CODE_OF_CONDUCT.md), and security problems
+are reported privately, see [SECURITY.md](https://github.com/twilight-shell/.github/blob/main/SECURITY.md).
+
 ## The repositories
 
 | | |

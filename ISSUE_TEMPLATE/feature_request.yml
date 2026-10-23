@@ -1,0 +1,21 @@
+name: I wish it did
+description: A feature, a change, a new component or plugin hook
+labels: [enhancement]
+body:
+  - type: textarea
+    id: want
+    attributes:
+      label: What you want to do
+      description: Say what you are trying to get done, not only how you think it should work. What do you do now?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: How you imagine it
+      description: Optional. A sketch, a setting, an example.
+  - type: dropdown
+    id: help
+    attributes:
+      label: Would you like to work on it?
+      options: ["No, I'd just like it", "Yes, with some help", "Yes, I'll send a pull request"]
